@@ -1,5 +1,5 @@
 
-import { Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -27,32 +27,52 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Header = () => (
-  <header className="sticky top-0 z-30 w-full px-2 py-1 bg[#3B415F] sm:px-4 ">
-  <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-    <div className="flex lg:flex-1">
-      <a href="#" className="-m-1.5 p-1.5">
-        <span className="sr-only">Your Company</span>
-        <img className="h-12 w-auto" src='./zadig-transparent-grey-logo.png' alt="" />
+          
+
+
+const Header = () => {
+
+const [isContentHidden, setIsContentHidden] = useState(true);
+
+const toggleContent = () => {
+  setIsContentHidden(!isContentHidden);
+};
+
+  return (
+  <nav class="sticky top-0">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="https://flowbite.com/" class="flex items-center">
+          <img className="h-12 w-auto" src='./zadig-transparent-grey-logo.png' alt="" />  
       </a>
-    </div>
-    <div className="flex lg:hidden">
-      <button
-        type="button"
-        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-      >
-        <span className="sr-only">Open main menu</span>
-        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+      <button onClick={toggleContent} id='toggle-button' type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
       </button>
-    </div>
-    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-        Log in <span aria-hidden="true">&rarr;</span>
-      </a>
+      <div class="w-full md:block md:w-auto" id="navbar-default">
+        {isContentHidden && 
+        (<ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:bg-transparent bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul>)
+        }
+      </div>
     </div>
   </nav>
-</header>
-);
+  );
+}
 
 Header.propTypes = {};
 
