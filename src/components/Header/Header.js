@@ -1,5 +1,5 @@
 
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect,useRef } from 'react'
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -28,12 +28,36 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+
+
           
 
 
 const Header = () => {
 
 const [isContentHidden, setIsContentHidden] = useState(true);
+
+const [opacity, setOpacity] = useState(0);
+useEffect(() => {
+  function handleScroll() {
+    const distanceFromTop = divRef.current.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (distanceFromTop - windowHeight <= 0) {
+      const newOpacity = 1 + (window.scrollY / windowHeight);
+      setOpacity(newOpacity);
+    }
+  }
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
+const divRef = useRef(null);
+
 
 const toggleContent = () => {
   setIsContentHidden(!isContentHidden);
@@ -42,7 +66,7 @@ const toggleContent = () => {
   return (
   <nav class="myheader sticky top-4">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a class="flex items-center">
+      <a class="flex items-center fade-out" ref={divRef} style={{ opacity }} >
           <img className="h-12 w-auto" src='./zadig-transparent-grey-logo-with-shadow.png' alt="" />  
       </a>
       {/* <button onClick={toggleContent} id='toggle-button' type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
