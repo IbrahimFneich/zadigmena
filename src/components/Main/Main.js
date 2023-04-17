@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Main.css';
+import './WhiteBackground.css';
+import './GoldBackground.css';
+
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
 const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
@@ -15,12 +18,12 @@ const Main = () => (
       </Animator>
     </ScrollPage>
     <ScrollPage>
-      <Animator >
+      <Animator>
         <span></span>
       </Animator>
     </ScrollPage>
 
-    <div class="mybg bg-[#DFE2E1]"> 
+    <div class="white-animated-background bg-[#DFE2E1]"> 
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
@@ -56,11 +59,10 @@ const Main = () => (
     </ScrollPage>
     <ScrollPage>
       <Animator animation={batch(Fade(), Sticky())}>
-        <span></span>
       </Animator>
     </ScrollPage>
 
-    <div class="mybg bg-[#DFE2E1]"> 
+    <div class="white-animated-background bg-[#DFE2E1]"> 
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
@@ -82,7 +84,7 @@ const Main = () => (
       </ScrollPage>
     </div>
     <ScrollPage>
-      <Animator animation={batch(Fade(), Sticky())}>
+      <Animator>
         <span></span>
       </Animator>
     </ScrollPage>
@@ -95,11 +97,10 @@ const Main = () => (
       </Animator>
     </ScrollPage>
     <ScrollPage>
-      <Animator animation={batch(Fade(), Sticky())}>
-        <span></span>
+      <Animator>
       </Animator>
     </ScrollPage>
-    <div class="mybg bg-[#DFE2E1]">
+    <div class="white-animated-background bg-[#DFE2E1]">
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
     <span/><span/><span/><span/><span/><span/><span/><span/><span/><span/>
@@ -122,9 +123,17 @@ const Main = () => (
     </div>
 
     
+    <ScrollPage>
+      <Animator animation={FadeUp}>
+        <p class="md:w-auto w-screen  md:text-8xl text-4xl text-[#DFE2E1]">
+          Our Values
+        </p>
+      </Animator>
+    </ScrollPage>
 
     <ScrollPage>
-      <Animator animation={batch(Fade(), Sticky())}>
+      <Animator>
+        <span></span>
       </Animator>
     </ScrollPage>
 
@@ -160,8 +169,6 @@ const Main = () => (
         </a> 
       </Animator>
     </ScrollPage>
-
-
 
     <ScrollPage>
       <Animator animation={batch(Fade(),MoveOut(-800,0),Sticky())}>
