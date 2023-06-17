@@ -1,0 +1,13 @@
+.myheader {
+    z-index: 1;
+    background-color: #3B415F;
+    width: fit-content;
+}
+
+.fade-out {
+    opacity: 1;
+    transition: opacity 4s ease-out;
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+  }

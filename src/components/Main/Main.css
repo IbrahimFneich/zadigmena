@@ -1,0 +1,29 @@
+
+#logo path:nth-child(1){
+    fill: transparent;
+    stroke-width: 1;
+    stroke: #DFE2E1;
+    stroke-dasharray:  1714;
+    stroke-dashoffset: 1714;
+}
+
+#logo path:nth-child(1){
+    animation: animate-logo 1.4s linear forwards
+}
+
+@keyframes animate-logo {
+    0%{
+        stroke-dashoffset: 1714;
+    }
+    40%{
+        stroke-dashoffset: 1714;
+    }
+    80%{
+        stroke-dashoffset: 3428;
+        fill: transparent;
+    }
+    100%{
+        stroke-dashoffset: 3428;
+        fill: #DFE2E1;
+    }
+}
