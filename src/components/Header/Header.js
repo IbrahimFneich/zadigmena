@@ -64,11 +64,21 @@ const toggleContent = () => {
 };
 
   return (
-  <nav class="myheader sticky top-4">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a class="flex items-center fade-out" ref={divRef} style={{ opacity }} >
+  <nav class="myheader sticky flex items-center justify-between top-4">
+      <a class="flex items-center bg-[#3B415F] h-16 fade-out" ref={divRef} style={{ opacity }} >
           <img className="h-12 w-auto" src='./zadig-transparent-grey-logo-with-shadow.png' alt="" />  
       </a>
+      <div class="flex space-x-4 items-center bg-[#3B415F] h-16 ">
+        <span></span>
+        <div class="text-white" >About US</div>
+        <span></span>
+      </div>
+      {/* <a class="flex items-center fade-out" ref={divRef} style={{ opacity }} >
+          <img className="h-12 w-auto" src='./zadig-transparent-grey-logo-with-shadow.png' alt="" />  
+      </a>
+      <a class="flex items-center fade-out" ref={divRef} style={{ opacity }} >
+          <img className="h-12 w-auto" src='./zadig-transparent-grey-logo-with-shadow.png' alt="" />  
+      </a> */}
       {/* <button onClick={toggleContent} id='toggle-button' type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
@@ -91,7 +101,6 @@ const toggleContent = () => {
         </ul>)
         }
       </div> */}
-    </div>
   </nav>
   );
 }

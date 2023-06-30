@@ -1,7 +1,7 @@
 .myheader {
     z-index: 1;
-    background-color: #3B415F;
-    width: fit-content;
+    /* background-color: #3B415F; */
+    width: 100%;
 }
 
 .fade-out {
